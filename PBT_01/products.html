@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cửa Hàng Tai Nghe - ShopHigh</title>
+  <style>
+  
+    :root {
+      --dark: #1a1a1a;
+      --light: #f5f5f5;
+      --border: #ddd;
+      --accent: #e74c3c;
+      --accent-light: #3498db;
+      --success: #27ae60;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #f5f5f5 0%, #e8f4f8 100%);
+      color: #333;
+      line-height: 1.5;
+    }
+
+    header {
+      background: linear-gradient(90deg, #2c3e50 0%, #34495e 100%);
+      color: #fff;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    nav a {
+      color: #ecf0f1;
+      text-decoration: none;
+      margin-left: 15px;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #e74c3c;
+    }
+
+    .hero {
+      padding: 30px;
+      text-align: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-bottom: 3px solid #e74c3c;
+    }
+
+    .hero h1 {
+      margin: 0 0 10px 0;
+      color: #fff;
+    }
+
+    .hero p {
+      color: #ecf0f1;
+    }
+
+    .section {
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+
+    .section h2 {
+      color: #2c3e50;
+      border-left: 4px solid #e74c3c;
+      padding-left: 10px;
+      margin-top: 30px;
+    }
+
+    /* Grid sản phẩm */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .product-card {
+      border: 1px solid #ddd;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(231, 76, 60, 0.2);
+    }
+
+    .product-card figure {
+      margin: 0;
+      overflow: hidden;
+      border-radius: 6px;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      background: linear-gradient(135deg, #e0e0e0 0%, #f0f0f0 100%);
+      transition: transform 0.3s;
+    }
+
+    .product-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .product-card h3 {
+      font-size: 1.1rem;
+      margin: 10px 0;
+      color: #2c3e50;
+    }
+
+    .product-card p {
+      font-size: 13px;
+      color: #666;
+      flex-grow: 1;
+    }
+
+    /* Bảng thông số */
+    .card-specs {
+      width: 100%;
+      font-size: 12px;
+      border-collapse: collapse;
+      margin-bottom: 10px;
+    }
+    .card-specs td {
+      border-bottom: 1px solid #eee;
+      padding: 3px 0;
+    }
+
+    .price {
+      font-weight: bold;
+      color: #e74c3c;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .btn-buy {
+      display: block;
+      text-align: center;
+      background: linear-gradient(90deg, #e74c3c 0%, #c0392b 100%);
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+      font-size: 13px;
+      border-radius: 4px;
+      transition: background 0.3s;
+      font-weight: bold;
+    }
+
+    .btn-buy:hover {
+      background: linear-gradient(90deg, #c0392b 0%, #a93226 100%);
+    }
+
+    /* Bảng so sánh đơn giản */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .compare-table th, .compare-table td {
+      border: 1px solid #ddd;
+      padding: 12px 8px;
+      text-align: center;
+      font-size: 13px;
+    }
+    .compare-table th { 
+      background: linear-gradient(90deg, #2c3e50 0%, #34495e 100%);
+      color: white;
+      font-weight: bold;
+    }
+
+    .compare-table tbody tr:nth-child(odd) {
+      background: #f9f9f9;
+    }
+
+    .compare-table tbody tr:hover {
+      background: #f0f0f0;
+    }
+
+    footer {
+      background: linear-gradient(90deg, #2c3e50 0%, #34495e 100%);
+      color: #ecf0f1;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 12px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="#" class="logo">ShopHigh</a>
+    <nav>
+      <a href="#">Sản phẩm</a>
+      <a href="#">So sánh</a>
+      <a href="#">Liên hệ</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h1>Danh sách tai nghe</h1>
+    <p>Các sản phẩm tai nghe chính hãng giá rẻ.</p>
+  </div>
+
+  <div class="section">
+    <h2>Sản phẩm nổi bật</h2>
+    <div class="products-grid">
+
+      <article class="product-card">
+        <figure>
+          <img src="https://placehold.co/300x200" alt="Truthear Pure">
+        </figure>
+        <h3>Truthear Pure</h3>
+        <p>IEM hybrid 1DD + 3BA cao cấp với âm thanh cân bằng.</p>
+        <table class="card-specs">
+          <tr><td>Driver</td><td>1DD + 3BA</td></tr>
+          <tr><td>Trở kháng</td><td>13.8Ω</td></tr>
+          <tr><td>Dải tần</td><td>7-40kHz</td></tr>
+        </table>
+        <div class="price"><strong>1.790.000₫</strong></div>
+        <a href="#" class="btn-buy">Mua ngay</a>
+      </article>
+
+      <article class="product-card">
+        <figure>
+          <img src="https://placehold.co/300x200" alt="Kefine Klean">
+        </figure>
+        <h3>Kefine Klean</h3>
+        <p>IEM single dynamic driver 10mm chất lượng cao.</p>
+        <table class="card-specs">    
+          <tr><td>Driver</td><td>10mm Dynamic</td></tr>
+          <tr><td>Trở kháng</td><td>32Ω</td></tr>
+          <tr><td>Dải tần</td><td>20-20kHz</td></tr>
+        </table>
+        <div class="price"><strong>1.050.000₫</strong></div>
+        <a href="#" class="btn-buy">Mua ngay</a>
+      </article>
+
+      <article class="product-card">
+        <figure>
+          <img src="https://placehold.co/300x200" alt="Moondrop LAN II">
+        </figure>
+        <h3>Moondrop LAN II</h3>
+        <p>Vỏ thép MIM, jack 4.4mm Balanced cho âm thanh tự nhiên.</p>
+        <table class="card-specs">
+          <tr><td>Driver</td><td>10mm Dual-Cavity</td></tr>
+          <tr><td>Trở kháng</td><td>30Ω</td></tr>
+          <tr><td>Dải tần</td><td>12-60kHz</td></tr>
+        </table>
+        <div class="price"><strong>1.450.000₫</strong></div>
+        <a href="#" class="btn-buy">Mua ngay</a>
+      </article>
+
+      <article class="product-card">
+        <figure>
+          <img src="https://placehold.co/300x200" alt="Kiwi Ears Cadenza II">
+        </figure>
+        <h3>Kiwi Ears Cadenza II</h3>
+        <p>Driver Dynamic màng PET phủ Titanium 10mm.</p>
+        <table class="card-specs">
+          <tr><td>Trở kháng</td><td>18Ω</td></tr>
+          <tr><td>Độ nhạy</td><td>106 dB</td></tr>
+          <tr><td>Cáp</td><td>2-pin 0.78mm</td></tr>
+        </table>
+        <div class="price"><strong>1.350.000₫</strong></div>
+        <a href="#" class="btn-buy">Mua ngay</a>
+      </article>
+
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Bảng so sánh</h2>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th colspan="2">Tiêu chí So sánh</th>
+          <th>Truthear Pure</th>
+          <th>Kefine Klean</th>
+          <th>Moondrop LAN II</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th rowspan="2">Cấu hình</th>
+          <td>Driver</td>
+          <td>Hybrid 1DD+3BA</td>
+          <td>10mm Dynamic</td>
+          <td>10mm Dual-Cavity</td>
+        </tr>
+        <tr>
+          <td>Trở kháng</td>
+          <td>13.8Ω</td>
+          <td>32Ω</td>
+          <td>30Ω</td>
+        </tr>
+        <tr>
+          <td colspan="2">Dải tần</td>
+          <td>7-40kHz</td>
+          <td>20-20kHz</td>
+          <td>12-60kHz</td>
+        </tr>
+        <tr>
+          <td colspan="2">Giá bán</td>
+          <td><mark>1.790.000₫</mark></td>
+          <td><mark>1.050.000₫</mark></td>
+          <td><mark>1.450.000₫</mark></td>
+        </tr>
+        <tr>
+          <td colspan="2">Bảo hành</td>
+          <td>12 tháng</td>
+          <td>12 tháng</td>
+          <td>12 tháng</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer>
+    <div style="margin-bottom: 15px;">
+      <a href="#" style="color: #ccc; margin: 0 15px; text-decoration: none;">Chính sách</a>
+      <a href="#" style="color: #ccc; margin: 0 15px; text-decoration: none;">Liên hệ</a>
+      <a href="#" style="color: #ccc; margin: 0 15px; text-decoration: none;">FAQ</a>
+    </div>
+    <p>© 2025 ShopHigh - Mọi quyền được bảo lưu.</p>
+  </footer>
+
+</body>
+</html>

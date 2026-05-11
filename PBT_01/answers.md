@@ -64,9 +64,6 @@ Giải thích
 
 Câu A4 - Table
 
-
-05_tables_hyperlinks.md — Mục Table — Bảng dữ liệu
-04_visible_part_html.md — Mục Bản đồ Semantic Elements
 1. Sự khác nhau giữa <thead>, <tbody>, <tfoot>
 <thead>: Phần đầu bảng, thường chứa tiêu đề cột.
 <tbody>: Phần thân bảng, chứa dữ liệu chính.
@@ -81,7 +78,7 @@ Không đúng mục đích: Table sinh ra để hiển thị dữ liệu dạng 
 
 Bài B3 — Debug HTML (Phân tích và sửa 12 lỗi)
 
-Dưới đây là danh sách 12 lỗi đã được phát hiện và khắc phục trong file debug.html:
+Danh sách 12 lỗi đã được phát hiện và khắc phục trong file debug.html:
 
 Lỗi 1: Dòng 1 — Khai báo <!DOCTYPE> không đầy đủ — Sửa: <!DOCTYPE html>.
 Lỗi 2: Dòng 2 — Thẻ <html> thiếu thuộc tính lang (quan trọng cho Accessibility) — Sửa: <html lang="vi">.
@@ -97,6 +94,14 @@ Lỗi 11: Dòng 28-37 — <table> thiếu cấu trúc <thead> và <tbody> — S�
 Lỗi 12: Dòng 41 — Sử dụng hai thẻ <main> trên cùng một trang (sai chuẩn HTML5) — Sửa: Thay thẻ <main> thứ hai thành <aside>.
 Lỗi 13: Dòng 46 — Thẻ <p> trong footer chưa được đóng — Sửa: Thêm </p>.
 
+Bài B4:
+
+<header class="shopee-top shopee-top--sticky"> — đầu trang, chứa logo, ô tìm kiếm và nav điều hướng, có sticky nên luôn hiển thị khi scroll
+PBT_01/screenshots/Screenshot 2026-04-29 000208.png
+<nav class="container navbar"> — nằm trong <header>, chứa các link danh mục sản phẩm
+PBT_01/screenshots/Screenshot 2026-04-29 000413.png
+<footer role="contentinfo" class="Dtu9HW wfGQ6T"> — cuối trang, chứa link SEO, thông tin công ty, mạng xã hội; có thêm role="contentinfo" cho accessibility
+PBT_01/screenshots/Screenshot 2026-04-29 000303.png
 Câu C1 - Thiết kế cấu trúc HTML
 
 <!DOCTYPE html>
